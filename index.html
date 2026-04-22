@@ -1,0 +1,231 @@
+from pathlib import Path
+
+html = r"""<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới thiệu Trường THPT Thạch Thất</title>
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:#f3f4f6;
+      color:#222;
+      line-height:1.6;
+    }
+    .container{
+      width:90%;
+      max-width:1100px;
+      margin:0 auto;
+    }
+    header{
+      background:#1f4e79;
+      color:white;
+      padding:22px 0;
+    }
+    header h1{
+      margin:0;
+      text-align:center;
+      font-size:32px;
+    }
+    nav{
+      background:#0f766e;
+    }
+    nav ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    nav li{margin:0;}
+    nav a{
+      display:block;
+      color:white;
+      text-decoration:none;
+      padding:12px 18px;
+      font-size:16px;
+    }
+    nav a:hover{
+      background:#115e59;
+    }
+    section{
+      background:white;
+      margin:20px 0;
+      padding:20px;
+      border:1px solid #ddd;
+    }
+    h2{
+      margin-top:0;
+      color:#1f4e79;
+    }
+    p{
+      text-align:justify;
+    }
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+    .card{
+      border:1px solid #ddd;
+      padding:12px;
+      background:#fafafa;
+    }
+    .card img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      display:block;
+      background:#e5e7eb;
+      border:1px solid #bbb;
+    }
+    .card h3{
+      margin:10px 0 6px;
+      font-size:18px;
+      color:#0f766e;
+    }
+    .card p{
+      margin:0;
+      font-size:15px;
+    }
+    .achievement{
+      padding-left:18px;
+    }
+    .achievement li{
+      margin-bottom:8px;
+    }
+    footer{
+      background:#222;
+      color:white;
+      text-align:center;
+      padding:16px 0;
+      margin-top:20px;
+    }
+    .note{
+      font-size:14px;
+      color:#555;
+      margin-top:10px;
+    }
+    @media (max-width: 700px){
+      .gallery{
+        grid-template-columns:1fr;
+      }
+      header h1{
+        font-size:26px;
+      }
+      nav a{
+        padding:10px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <div class="container">
+      <h1>Trường THPT Thạch Thất</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="container">
+      <li><a href="#home">Trang chủ</a></li>
+      <li><a href="#gioi-thieu">Giới thiệu</a></li>
+      <li><a href="#hinh-anh">Hình ảnh</a></li>
+      <li><a href="#thanh-tich">Thành tích</a></li>
+      <li><a href="#lien-he">Liên hệ</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <section id="gioi-thieu">
+      <h2>Giới thiệu</h2>
+      <p>
+        Trường THPT Thạch Thất là một ngôi trường có truyền thống tốt đẹp của huyện Thạch Thất, Hà Nội.
+        Nhà trường luôn quan tâm đến việc dạy học, rèn luyện đạo đức và phát triển kỹ năng cho học sinh.
+        Đây là nơi học sinh được học tập trong môi trường nghiêm túc, thân thiện và có nhiều hoạt động bổ ích.
+      </p>
+    </section>
+
+    <section id="hinh-anh">
+      <h2>Hình ảnh</h2>
+      <p class="note">
+        Phần ảnh đã để sẵn source, bạn chỉ cần thay các file trong thuộc tính <b>src</b> bằng ảnh của mình.
+        Ví dụ: <b>images/cong-truong.jpg</b>, <b>images/lop-hoc.jpg</b>...
+      </p>
+
+      <div class="gallery">
+        <div class="card">
+          <img src="images/cong-truong.jpg" alt="Cổng trường THPT Thạch Thất">
+          <h3>Cổng trường</h3>
+          <p>Cổng trường là nơi tạo ấn tượng đầu tiên, thể hiện sự khang trang và thân thiện của nhà trường.</p>
+        </div>
+
+        <div class="card">
+          <img src="images/khu-lop-hoc.jpg" alt="Khu lớp học THPT Thạch Thất">
+          <h3>Khu nhà lớp học</h3>
+          <p>Khu nhà lớp học được sắp xếp gọn gàng, phục vụ tốt cho việc học tập hằng ngày của học sinh.</p>
+        </div>
+
+        <div class="card">
+          <img src="images/le-khai-giang.jpg" alt="Lễ khai giảng THPT Thạch Thất">
+          <h3>Lễ khai giảng</h3>
+          <p>Lễ khai giảng là hoạt động mở đầu năm học mới, thể hiện không khí vui tươi và quyết tâm học tập.</p>
+        </div>
+
+        <div class="card">
+          <img src="images/hoat-dong-tap-the.jpg" alt="Hoạt động tập thể THPT Thạch Thất">
+          <h3>Hoạt động tập thể</h3>
+          <p>Học sinh được tham gia nhiều hoạt động tập thể giúp rèn luyện kỹ năng và tinh thần đoàn kết.</p>
+        </div>
+
+        <div class="card">
+          <img src="images/gio-hoc.jpg" alt="Giờ học THPT Thạch Thất">
+          <h3>Giờ học trên lớp</h3>
+          <p>Trong các giờ học, học sinh chăm chú nghe giảng, ghi chép và trao đổi để tiếp thu kiến thức.</p>
+        </div>
+
+        <div class="card">
+          <img src="images/thu-vien.jpg" alt="Thư viện THPT Thạch Thất">
+          <h3>Thư viện và học liệu</h3>
+          <p>Thư viện là nơi hỗ trợ học sinh tự học, đọc sách và mở rộng kiến thức ngoài giờ lên lớp.</p>
+        </div>
+
+        <div class="card">
+          <img src="images/thanh-tich.jpg" alt="Thành tích THPT Thạch Thất">
+          <h3>Thành tích nổi bật</h3>
+          <p>Nhà trường có nhiều thành tích tốt trong học tập, thi học sinh giỏi và các hoạt động phong trào.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="thanh-tich">
+      <h2>Thành tích của trường</h2>
+      <ul class="achievement">
+        <li>Trường có bề dày truyền thống và được nhiều thế hệ học sinh, phụ huynh tin tưởng.</li>
+        <li>Nhiều năm liền có học sinh đạt giải trong các kỳ thi học sinh giỏi.</li>
+        <li>Nhà trường chú trọng cả học tập, rèn luyện đạo đức và hoạt động phong trào.</li>
+        <li>Góp phần đào tạo nhiều học sinh có ý thức tốt, kiến thức vững và kỹ năng khá.</li>
+      </ul>
+    </section>
+
+    <section id="lien-he">
+      <h2>Liên hệ</h2>
+      <p>Trường THPT Thạch Thất, huyện Thạch Thất, Hà Nội.</p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      Tổ 2 - 12A8
+    </div>
+  </footer>
+</body>
+</html>
+"""
+
+path = Path("/mnt/data/thpt-thach-that-basic-square.html")
+path.write_text(html, encoding="utf-8")
+print(f"Đã tạo file: {path}")
